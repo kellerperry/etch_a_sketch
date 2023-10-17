@@ -1,0 +1,19 @@
+#container {
+    width: 520px;
+    height: 520px;
+    border: 1px red solid;
+    display: flex;
+    
+}
+
+#row {
+    border: 1px blue solid;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#column {
+    border: 1px green solid;
+    flex: 1;
+}
