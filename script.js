@@ -1,12 +1,19 @@
+const DEFAULT_SIZE = 16;
+const DEFAULT_COLOR = "black";
+
 const grid = document.querySelector('#grid');
+const gridSizeBtn = document.querySelector('#gridSizeBtn');
+const defaultColorBtn = document.querySelector('#defaultColor')
+const pizzazzBtn = document.querySelector('#pizzazz');
 const clearBtn = document.querySelector('#clearBtn')
+const sketchRow = document.getElementById('row');
+const sketchColumn = document.querySelectorAll('.columns');
 
-let gridSizeBtn = document.querySelector('#gridSizeBtn');
-
-
-let gridSize = 16;
+let gridSize = DEFAULT_SIZE;
+let currentColor = DEFAULT_COLOR;
 
 gridSizeBtn.addEventListener('click', getUserInput)
+clearBtn.onclick = () => reloadGrid();
 
 function getUserInput () {
     let userInput = prompt('Enter a value between 1 and 100');
@@ -19,9 +26,6 @@ function getUserInput () {
     gridSize = userInput;
     reloadGrid();
 }
-
-clearBtn.onclick = () => reloadGrid();
-
 
 function setGrid(size) {
     for(let i = 0; i <= size; i++) {
@@ -41,17 +45,8 @@ function setGrid(size) {
 }
 
 
-let sketchRow = document.getElementById('row');
-let sketchColumn = document.querySelectorAll('.columns');
-
-// sketchColumn.forEach((element) => {
-//     element.addEventListener('mousedown', (event) => {
-//         event.target.style.backgroundColor = 'black';
-//     })
-// });
-
 function changeColor (e) {
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = currentColor;
 }
 
 function addPizzazz (e) {
@@ -69,7 +64,6 @@ function reloadGrid() {
 function clearGrid() {
     grid.innerHTML = '';
 }
-
 
 
 window.onload = () => {
